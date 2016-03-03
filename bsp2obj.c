@@ -160,6 +160,11 @@ int main(int argc, char **argv)
 	{
 		struct miptex_s *miptex = buf + header->miptex.offset + mipheader->offsets[i];
 		
+		if (g_strcmp0(miptex->name, "trigger") == 0 || g_strcmp0(miptex->name, "clip") == 0 || g_strcmp0(miptex->name, "black") == 0)
+		{
+			continue;
+		}
+		
 		if (miptex->name[0] == '*')
 		{
 			miptex->name[0] = '+';
