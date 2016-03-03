@@ -251,13 +251,18 @@ int main(int argc, char **argv)
 			}
 		}
 		
-		g_hash_table_remove_all(map);
-		
 		obj = g_string_append(obj, obj_uvs->str);
 		obj = g_string_append(obj, obj_faces->str);
 		
 		g_string_free(obj_uvs, TRUE);
 		g_string_free(obj_faces, TRUE);
+		
+		if (g_hash_table_size(map) == 0)
+		{
+			continue;
+		}
+		
+		g_hash_table_remove_all(map);
 		
 		out_file = g_strdup_printf("%s_%d.obj", map_name, k);
 		
