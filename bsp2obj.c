@@ -177,7 +177,7 @@ int main(int argc, char **argv)
 		g_string_append_printf(obj, "Tr 1\n");
 		g_string_append_printf(obj, "illum 1\n");
 		g_string_append_printf(obj, "Ns 0\n");
-		g_string_append_printf(obj, "map_Kd %s.jpg\n", miptex->name);
+		g_string_append_printf(obj, "map_Kd textures/%s.jpg\n", miptex->name);
 	}
 	
 	gchar *out_file = g_strdup_printf("%s.mtl", map_name);
