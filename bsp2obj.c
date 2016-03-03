@@ -264,7 +264,14 @@ int main(int argc, char **argv)
 		
 		g_hash_table_remove_all(map);
 		
-		out_file = g_strdup_printf("%s_%d.obj", map_name, k);
+		if (k == 0)
+		{
+			out_file = g_strdup_printf("%s.obj", map_name);
+		}
+		else
+		{
+			out_file = g_strdup_printf("%s_%d.obj", map_name, k);
+		}
 		
 		g_file_set_contents(out_file, obj->str, obj->len, &err);
 		if (err != NULL)
