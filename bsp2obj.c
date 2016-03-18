@@ -169,6 +169,11 @@ int main(int argc, char **argv)
 		{
 			miptex->name[0] = '+';
 		}
+
+		if (strlen(miptex->name) == 0)
+		{
+			g_snprintf(miptex->name, sizeof(miptex->name), "unnamed%d", i);
+		}
 		
 		g_string_append_printf(obj, "newmtl %s\n", miptex->name);
 		g_string_append_printf(obj, "Ka 1 1 1\n");
