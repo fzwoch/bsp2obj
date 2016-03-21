@@ -160,11 +160,6 @@ int main(int argc, char **argv)
 	{
 		struct miptex_s *miptex = buf + header->miptex.offset + mipheader->offsets[i];
 		
-		if (g_strcmp0(miptex->name, "trigger") == 0 || g_strcmp0(miptex->name, "clip") == 0 || g_strcmp0(miptex->name, "black") == 0)
-		{
-			continue;
-		}
-		
 		if (miptex->name[0] == '*')
 		{
 			miptex->name[0] = '+';
@@ -211,11 +206,6 @@ int main(int argc, char **argv)
 			struct face_s *face = &faces[models[k].face_id + i];
 			struct edge_s *edge = edges + ABS(edges_list[face->ledge_id]);
 			struct miptex_s *miptex = buf + header->miptex.offset + mipheader->offsets[surfaces[face->texinfo_id].texture_id];
-			
-			if (g_strcmp0(miptex->name, "trigger") == 0 || g_strcmp0(miptex->name, "clip") == 0 || g_strcmp0(miptex->name, "black") == 0)
-			{
-				continue;
-			}
 			
 			g_string_append_printf(obj_faces, "usemtl %s\n", miptex->name);
 			
