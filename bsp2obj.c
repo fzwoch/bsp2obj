@@ -252,11 +252,6 @@ int main(int argc, char **argv)
 		g_string_free(obj_uvs, TRUE);
 		g_string_free(obj_faces, TRUE);
 		
-		if (g_hash_table_size(map) == 0)
-		{
-			continue;
-		}
-		
 		g_hash_table_remove_all(map);
 		
 		if (k == 0)
