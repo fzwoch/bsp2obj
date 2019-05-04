@@ -131,6 +131,12 @@ int main(int argc, char **argv)
 	gchar *buf = NULL;
 	gsize buf_len = 0;
 	
+	if (argc != 2)
+	{
+		g_print("usage: %s <map.bsp>\n", argv[0]);
+		return 0;
+	}
+
 	GHashTable *map = g_hash_table_new(g_direct_hash, g_direct_equal);
 	GString *obj = g_string_new(NULL);
 	
