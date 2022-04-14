@@ -23,7 +23,7 @@ LDFLAGS := `pkg-config --libs glib-2.0`
 all: bsp2obj
 
 bsp2obj: bsp2obj.o
-	$(CC) $(LDFLAGS) $< -o $@
+	$(CC) $< $(LDFLAGS) -o $@
 
 clean:
 	rm -f bsp2obj *.o
